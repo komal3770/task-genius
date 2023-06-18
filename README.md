@@ -15,7 +15,7 @@ The Personal Task Manager - Daily Schedule project aims to develop a Java-based 
 
 - Java 17
 - Spring Boot 3x
-- MySQL 8
+- MySQL 8(docker image)
 
 ## Run Configuration
 
