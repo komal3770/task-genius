@@ -14,15 +14,18 @@ The Personal Task Manager - Daily Schedule project aims to develop a Java-based 
 ## Technologies Used
 
 - Java 17
+- Spring 6
 - Spring Boot 3x
-- MySQL 8(docker image)
+- MySQL 8
+- Spring Security
 
 ## Run Configuration
 
 1. Clone the repository: `git clone https://github.com/yourusername/task-management.git`
 2. Navigate to the project directory: `cd task-management`
 3. Configure the database settings in the `application.properties` file.
-4. Run docker-compose.yml: `docker-compose up`
-5. Build the project: `mvn clean install`
-6. Run the application: `mvn spring-boot:run`
-7. Open your web browser and visit: `http://localhost:8080`
+4. Build the project: `mvn clean install`
+5. Run the application: `mvn spring-boot:run`
+6. Open your web browser and visit: `http://localhost:8080`
+
+

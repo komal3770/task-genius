@@ -2,17 +2,17 @@ package com.taskgenius.dto;
 
 import com.taskgenius.constants.Role;
 import com.taskgenius.entities.User;
-import lombok.NonNull;
+import jakarta.validation.constraints.NotNull;
 
-public record UserDto(@NonNull String name, @NonNull String email, @NonNull String password,
-                      @NonNull String role) {
+public record UserDto(@NotNull String name, @NotNull String email, @NotNull String password,
+                      String role) {
 
   public User toUser() {
     User user = new User();
     user.setName(name);
     user.setEmail(email);
     user.setPassword(password);
-    user.setRole(Role.valueOf(role));
+    user.setRole(role != null ? Role.valueOf(role) : Role.USER);
     return user;
   }
 

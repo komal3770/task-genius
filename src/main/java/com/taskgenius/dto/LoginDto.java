@@ -1,11 +1,8 @@
 package com.taskgenius.dto;
 
-import lombok.Data;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 
-@Data
-public class LoginDto {
-
-  private String email;
-  private String password;
+public record LoginDto(@NotNull @Email String email, @NotNull String password) {
 
 }

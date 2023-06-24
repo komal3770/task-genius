@@ -33,27 +33,28 @@ public class AuthController {
   JwtService jwtUtils;
 
   @PostMapping("/login")
-  public ResponseEntity login(@RequestBody LoginDto loginDto) {
-    Authentication authentication = null;
+  public ResponseEntity<JwtResponse> login(@RequestBody LoginDto loginDto) {
+    Authentication authentication;
     try {
       authentication = authenticationManager.authenticate(
-          new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
+          new UsernamePasswordAuthenticationToken(loginDto.email(), loginDto.password()));
       SecurityContextHolder.getContext().setAuthentication(authentication);
 
       String jwt = jwtUtils.generateJwtToken(authentication);
       User userDetails = (User) authentication.getPrincipal();
 
       return ResponseEntity.ok(new JwtResponse(jwt,
-          userDetails.getUsername()));
+          userDetails.getUsername(), "User successfully logged in"));
 
     } catch (BadCredentialsException ex) {
       ex.printStackTrace();
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new JwtResponse(null,
+          null, "Invalid username or password"));
     }
   }
 
   @PostMapping("/register")
-  public ResponseEntity registerUser(@RequestBody UserDto userDto){
+  public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) {
     userService.save(userDto);
     return ResponseEntity.status(HttpStatus.CREATED).build();
   }
