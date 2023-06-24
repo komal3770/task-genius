@@ -1,5 +1,6 @@
 package com.taskgenius.configurations;
 
+import com.taskgenius.filter.JwtTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,7 @@ public class SecurityConfig {
     http
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
-            (requests) -> requests.requestMatchers("/auth/**").permitAll().anyRequest()
+            (requests) -> requests.requestMatchers("/v1/auth/**").permitAll().anyRequest()
                 .authenticated())
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

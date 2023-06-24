@@ -1,9 +1,12 @@
 package com.taskgenius.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.taskgenius.constants.Role;
 import com.taskgenius.entities.User;
 import jakarta.validation.constraints.NotNull;
 
+@JsonInclude(Include.NON_NULL)
 public record UserDto(@NotNull String name, @NotNull String email, @NotNull String password,
                       String role) {
 

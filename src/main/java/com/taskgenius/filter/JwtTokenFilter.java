@@ -1,5 +1,6 @@
-package com.taskgenius.configurations;
+package com.taskgenius.filter;
 
+import com.taskgenius.configurations.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
