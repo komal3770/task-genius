@@ -77,4 +77,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     return ResponseEntity.status(HttpStatus.FORBIDDEN)
         .body(new ApiError("Access denied", false));
   }
+
+  @ExceptionHandler({ IllegalArgumentException.class })
+  public ResponseEntity<ApiError> handleIllegalArugment(IllegalArgumentException ex) {
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(new ApiError(ex.getMessage(), false));
+  }
 }

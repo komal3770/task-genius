@@ -26,6 +26,3 @@ The Personal Task Manager - Daily Schedule project aims to develop a Java-based 
 3. Configure the database settings in the `application.properties` file.
 4. Build the project: `mvn clean install`
 5. Run the application: `mvn spring-boot:run`
-6. Open your web browser and visit: `http://localhost:8080`
-
-
